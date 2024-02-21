@@ -1,6 +1,10 @@
+import requests
 from shareplum import Site, Office365
 from shareplum.site import Version
 
+import shareplum
+
+print(shareplum.__version__)
 
 # SharePoint 用户名和密码
 sharepointUsername = "toddy.zhou-ext@kering.com"
@@ -15,23 +19,36 @@ sharepointSite = "https://kering.sharepoint.com"
 library_name = "Document Library/KE – DIGITAL WARRANTY CARD BI"
 # sharepoint_directory: ["User Folder", "Archive Folder", "test folder"]
 
+
+class ShareplumHttpError:
+    pass
+
+
 try:
     # 首先进行身份验证并获取 SharePoint 网站的授权 cookie
     authcookie = Office365(
         website, username=sharepointUsername, password=sharepointPassword
     ).GetCookies()
-    print(f"Auth cookie: {authcookie}")
+    # print(f"Auth cookie: {authcookie}")
     print("1")
-    site = Site(sharepointSite, version=Version.v365, authcookie=authcookie)
-    print("2")
-    # 输出网站的标题和描述
-    print(f"SharePoint:{site.site_url}")
-    print("SharePoint连接成功!")
-    print("site.version")
 
+    try:
+        site = Site(sharepointSite, version=Version.v365, authcookie=authcookie)
+        print("2")
+        # 输出网站的标题和描述
+        print(f"SharePoint:{site.site_url}")
+        print("SharePoint连接成功!")
+        print("site.version")
+
+    except requests.exceptions.HTTPError as sp_http_error:
+        print(f"SharePoint连接或认证失败：{sp_http_error}")
+
+        response = sp_http_error.response  # 获取响应对象
+
+        print(f"错误详情：{response.status_code} - {response.reason}")
 
 except Exception as e:
-    print(f"SharePoint连接或认证失败：{e}")
+    print(f"其他未知错误：{e}")
 
 
 folder_name = "test Folder"
