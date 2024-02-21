@@ -1,5 +1,5 @@
 # 使用官方的Python基础镜像
-FROM python:3.9-slim-buster
+FROM 3.11.8-slim-bullseye
 
 # 设置工作目录
 WORKDIR /app
