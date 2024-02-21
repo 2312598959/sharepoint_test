@@ -15,14 +15,12 @@ sharepointSite = "https://kering.sharepoint.com"
 library_name = "Document Library/KE – DIGITAL WARRANTY CARD BI"
 # sharepoint_directory: ["User Folder", "Archive Folder", "test folder"]
 
-# 首先进行身份验证并获取 SharePoint 网站的授权 cookie
-authcookie = Office365(
-    website, username=sharepointUsername, password=sharepointPassword
-).GetCookies()
-print(f"Auth cookie: {authcookie}")
-
-
 try:
+    # 首先进行身份验证并获取 SharePoint 网站的授权 cookie
+    authcookie = Office365(
+        website, username=sharepointUsername, password=sharepointPassword
+    ).GetCookies()
+    print(f"Auth cookie: {authcookie}")
     print("1")
     site = Site(sharepointSite, version=Version.v365, authcookie=authcookie)
     print("2")
