@@ -7,10 +7,13 @@ WORKDIR /app
 # 将当前目录下的所有文件复制到容器的工作目录中
 COPY . /app
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    software-properties-common \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y \
+        python3 \
+        python3-pip \
+        build-essential \
+        software-properties-common && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install -r requirements.txt
 
