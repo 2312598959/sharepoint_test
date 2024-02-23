@@ -1,4 +1,4 @@
-from 3.11-slim
+from 3.11-slim-bullseye
 
 
 # 设置工作目录
