@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . /app
 
 
-RUN pip install SharePlum --index-url https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip install SharePlum --index-url http://mirrors.aliyun.com/pypi/simple/  
+
 
 
 
