@@ -9,7 +9,7 @@ COPY . /app
 
 RUN apt-get update && apt-get install -y python3-dev
 
-RUN pip3 install --no-cache-dir shareplum==0.5.1
+RUN pip3 install --no-cache-dir shareplum
 
 
 ENV TZ="Asia/Shanghai"
