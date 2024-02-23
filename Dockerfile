@@ -15,7 +15,7 @@ RUN apt-get update && \
         software-properties-common && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install --no-cache-dir shareplum==0.5.1
 
 
 ENV TZ="Asia/Shanghai"
