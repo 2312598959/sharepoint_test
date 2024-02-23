@@ -1,4 +1,5 @@
-FROM 3.11-slim-bullseye
+from mcr.microsoft.com/dotnet/aspnet:3.1-buster-slim
+
 
 # 设置工作目录
 WORKDIR /app
