@@ -8,7 +8,8 @@ WORKDIR /app
 COPY . /app
 
 
-RUN pip3 install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ shareplum==0.5.1
+RUN pip install SharePlum --index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
 
 
 ENV TZ="Asia/Shanghai"
