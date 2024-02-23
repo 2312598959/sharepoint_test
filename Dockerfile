@@ -1,4 +1,4 @@
-from mcr.microsoft.com/dotnet/aspnet:3.11-slim-bullseye
+FROM python:3.11
 
 
 # 设置工作目录
