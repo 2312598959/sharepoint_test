@@ -33,13 +33,27 @@ try:
     print("1")
 
     try:
-        site = Site(sharepointSite, version=Version.v365, authcookie=authcookie)
+        site = Site(
+            sharepointSite, version=Version.v2019, authcookie=authcookie, timeout=60
+        )
         print("2")
         # 输出网站的标题和描述
         print(f"SharePoint:{site.site_url}")
         print("SharePoint连接成功!")
         print("site.version")
+        folder_name = "test Folder"
+        print(folder_name)
 
+        folder_path = f"{library_name}/{folder_name}"
+
+        # 创建 Folder 对象
+        folder_all = site.Folder(folder_path)
+        print("sharepoint_directory:", folder_all.folders)
+        # 获取files字典
+        file_dictionary = folder_all.files
+
+        file_names = [file_info["Name"] for file_info in file_dictionary]
+        print("sharepoint_file_list()已经获取数据文件列表!", file_names)
     except requests.exceptions.HTTPError as sp_http_error:
         print(f"SharePoint连接或认证失败：{sp_http_error}")
 
@@ -49,18 +63,3 @@ try:
 
 except Exception as e:
     print(f"其他未知错误：{e}")
-
-
-folder_name = "test Folder"
-print(folder_name)
-
-folder_path = f"{library_name}/{folder_name}"
-
-# 创建 Folder 对象
-folder_all = site.Folder(folder_path)
-print("sharepoint_directory:", folder_all.folders)
-# 获取files字典
-file_dictionary = folder_all.files
-
-file_names = [file_info["Name"] for file_info in file_dictionary]
-print("sharepoint_file_list()已经获取数据文件列表!", file_names)
