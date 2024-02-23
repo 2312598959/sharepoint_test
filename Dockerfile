@@ -1,5 +1,5 @@
-FROM python:3.11
-
+# 使用官方的Python基础镜像
+FROM python:3.9-slim-buster
 
 # 设置工作目录
 WORKDIR /app
@@ -7,12 +7,10 @@ WORKDIR /app
 # 将当前目录下的所有文件复制到容器的工作目录中
 COPY . /app
 
-# 安装必要的Windows组件、Python和pip
-RUN powershell -Command "Install-WindowsFeature Net-Framework-Core" && \
-    curl -sSL https://packages.microsoft.com/config/win/ltsc2019/packages-microsoft-prod.deb -o packages-microsoft-prod.deb && \
-    dpkg -i packages-microsoft-prod.deb && \
-    apt-get update && \
-    apt-get install -y python3 python3-pip
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    software-properties-common \
+    && rm -rf /var/lib/apt/lists/*
     
 RUN pip install SharePlum --index-url http://mirrors.aliyun.com/pypi/simple/  
 
