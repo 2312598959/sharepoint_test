@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     && rm -rf /var/lib/apt/lists/*
     
-RUN pip install SharePlum --index-url http://mirrors.aliyun.com/pypi/simple/  
+RUN pip install SharePlum
 
 
 
