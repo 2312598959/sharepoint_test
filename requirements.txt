@@ -1,1 +1,1 @@
-shareplum==0.5.1
+shareplum
