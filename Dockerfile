@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM 3.11-slim-bullseye
 
 # 设置工作目录
 WORKDIR /app
