@@ -1,4 +1,4 @@
-from mcr.microsoft.com/dotnet/aspnet:3.1-buster-slim
+from 3.11-slim
 
 
 # 设置工作目录
