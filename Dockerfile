@@ -7,6 +7,8 @@ WORKDIR /app
 # 将当前目录下的所有文件复制到容器的工作目录中
 COPY . /app
 
+RUN apt-get update && apt-get install -y python3-dev
+
 RUN pip3 install --no-cache-dir shareplum==0.5.1
 
 
