@@ -13,10 +13,10 @@ sharepointPassword = "K@ring96828"
 # SharePoint 网站的URL
 website = "https://kering.sharepoint.com"
 # SharePoint 文档库的URL
-sharepointSite = "https://kering.sharepoint.com"
+sharepointSite = "https://kering.sharepoint.com/sites/Kering_Eyewear/"
 
 # SharePoint 文档库
-library_name = "Document Library/KE – DIGITAL WARRANTY CARD BI"
+library_name = "KEYE DIGITAL WARRANTY CARD BI"
 # sharepoint_directory: ["User Folder", "Archive Folder", "test folder"]
 
 
