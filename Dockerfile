@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
 
 COPY requirements /app
 RUN pip3 install -r requirements.txt
-RUN pip install SharePlum
 
 COPY ./src /app/src
 
